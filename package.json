@@ -1,0 +1,59 @@
+{
+  "name": "@raviraj87/dynatrace-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for Dynatrace Grail logs, Kubernetes pod status, problem triage, and metrics",
+  "license": "MIT",
+  "author": "Ravi Raj",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raviraj-ntp/dynatrace-mcp.git"
+  },
+  "homepage": "https://github.com/raviraj-ntp/dynatrace-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/raviraj-ntp/dynatrace-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "dynatrace",
+    "grail",
+    "dql",
+    "kubernetes",
+    "observability",
+    "cursor"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "dynatrace-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:readonly": "node scripts/test-readonly.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "node-fetch": "^3.3.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
